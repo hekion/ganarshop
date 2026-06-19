@@ -10,23 +10,25 @@
 
     <div id="header-holder"></div>
 
-    <div class="category-info-bar">展示中のアイテム（全 8 件）</div>
-
-    <div class="products-grid" style="margin-top: 24px; padding-bottom: 40px;">
-        <div class="product-card" onclick="location.href='product.html?id=p1'">
-            <div class="product-img">👕</div>
-            <div class="product-name">オーセンティックユニフォーム 2026</div>
-            <div class="product-price">¥12,000</div>
-        </div>
-        <div class="product-card" onclick="location.href='product.html?id=p2'">
-            <div class="product-img">🧣</div>
-            <div class="product-name">プレーヤーズマフラータオル</div>
-            <div class="product-price">¥2,500</div>
-        </div>
+    <div class="page-body-header-flat">
+        <a href="index.html" class="body-back-btn">◁ TOP</a>
+        <h1 class="page-body-title" id="pageBodyTitle">ITEMS</h1>
     </div>
+
+    <div class="category-info-bar" id="categoryInfoBar">
+        該当する商品を表示しています
+    </div>
+
+    <div class="page-explain-text">
+        GANARのオフィシャルグッズ一覧です。日常使いからスタジアム観戦まで幅広くカバーするラインナップをお楽しみください。
+    </div>
+
+    <div class="products-grid" id="category-products-grid">
+        </div>
 
     <div id="footer-holder"></div>
 
     <script src="load-components.js"></script>
+    <script src="shop.js"></script>
 </body>
 </html>
