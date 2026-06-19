@@ -8,70 +8,7 @@
 </head>
 <body>
 
-    <header>
-        <div class="menu-trigger-btn" onclick="toggleMenu()">☰</div>
-        <div>GANAR OFFICIAL SHOP</div>
-    </header>
-
-    <div class="drawer-overlay" id="drawerMenu">
-        <div class="drawer-header">
-            <div class="drawer-close-btn" onclick="toggleMenu()">
-                <span class="close-icon">✕</span>
-                <span class="close-text">CLOSE</span>
-            </div>
-        </div>
-
-        <div class="drawer-body">
-            <div class="drawer-search-box">
-                <input type="text" placeholder="キーワードを入力">
-                <button class="drawer-search-submit">検索</button>
-            </div>
-
-            <div class="drawer-tag-container">
-                <span class="drawer-capsule-tag" onclick="location.href='category.html?type=new'">NEWアイテム</span>
-                <span class="drawer-capsule-tag" onclick="location.href='category.html?category=towel'">タオル・マフラー</span>
-                <span class="drawer-capsule-tag">応援雑貨</span>
-                <span class="drawer-capsule-tag">Tシャツ</span>
-            </div>
-
-            <div class="drawer-mymenu-grid">
-                <div class="mymenu-cell cell-black">
-                    <span class="cell-icon">📋</span>
-                    <span class="cell-text">購入履歴</span>
-                </div>
-                <div class="mymenu-cell cell-blue">
-                    <span class="cell-icon">👤</span>
-                    <span class="cell-text">ログイン</span>
-                </div>
-                <div class="mymenu-cell cell-gold">
-                    <span class="cell-icon">💳</span>
-                    <span class="cell-text">決済情報</span>
-                </div>
-                <div class="mymenu-cell cell-red">
-                    <span class="cell-icon">🛒</span>
-                    <span class="cell-text">カートを見る</span>
-                </div>
-            </div>
-
-            <div class="drawer-nav-list">
-                <div class="drawer-nav-item" onclick="location.href='players.html'">
-                    <span>選手から選ぶ</span><span class="arrow">➔</span>
-                </div>
-                <div class="drawer-nav-item" onclick="location.href='category.html?type=new'">
-                    <span>新着商品</span><span class="arrow">➔</span>
-                </div>
-                <div class="drawer-nav-item" onclick="location.href='index.html#ranking'">
-                    <span>ランキング</span><span class="arrow">➔</span>
-                </div>
-                <div class="drawer-nav-item">
-                    <span>お気に入り</span><span class="arrow">➔</span>
-                </div>
-                <div class="drawer-nav-item item-sale">
-                    <span>SALE</span><span class="arrow">➔</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="header-holder"></div>
 
     <div class="slider-wrapper">
         <div class="slider-container">
@@ -87,14 +24,6 @@
                 <h2>SUMMER LIMITED TOWEL</h2>
                 <p>数量限定！スタジアムを鮮やかな水色に染め上げろ</p>
             </div>
-            <div class="slide" style="background: linear-gradient(135deg, #22c55e, #15803d);">
-                <h2>MASCOT GOODS DEBUT!!</h2>
-                <p>待望のクラブマスコットグッズが遂にオンライン販売開始！</p>
-            </div>
-            <div class="slide" style="background: linear-gradient(135deg, #ea580c, #ca8a04);">
-                <h2>FOR FIRST VISITORS</h2>
-                <p>これさえあれば安心！初観戦に絶対オススメの厳選定番アイテム</p>
-            </div>
         </div>
     </div>
 
@@ -102,11 +31,13 @@
         <input type="text" placeholder="グッズ名、選手名を入力...">
     </div>
 
-    <div class="section-title">👤 選手から探す / PLAYERS</div>
-    <div class="players-nav-box">
-        <button class="nav-to-players-btn" onclick="location.href='players.html'">
-            選手一覧からグッズを探す ➔
-        </button>
+    <div class="section-container">
+        <div class="section-title">👤 選手から探す / PLAYERS</div>
+        <div class="players-nav-box">
+            <button class="nav-to-players-btn" onclick="location.href='players.html'">
+                選手一覧からグッズを探す ➔
+            </button>
+        </div>
     </div>
 
     <div class="horizontal-scroll">
@@ -115,85 +46,78 @@
         <div class="category-tag" onclick="location.href='category.html?category=goods'">🔑 雑貨・小物</div>
     </div>
 
-    <div class="section-title">🔥 注目の新商品 / NEW ARRIVALS</div>
-    <div class="products-grid">
-        <div class="product-card" onclick="location.href='product.html?id=p1'">
-            <div class="product-img">👕</div>
-            <div class="product-name">レプリカユニ2026</div>
-            <div class="product-price">¥12,000</div>
-        </div>
-        <div class="product-card" onclick="location.href='product.html?id=p2'">
-            <div class="product-img">🧣</div>
-            <div class="product-name">選手マフラータオル</div>
-            <div class="product-price">¥2,500</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">👜</div>
-            <div class="product-name">公式トートバッグ</div>
-            <div class="product-price">¥3,800</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">🎒</div>
-            <div class="product-name">大容量バックパック</div>
-            <div class="product-price">¥8,500</div>
-        </div>
-    </div>
-    <div class="more-btn-container">
-        <button class="view-all-btn" onclick="location.href='category.html?type=new'">VIEW ALL ➔</button>
-    </div>
-
-    <div class="section-title" id="ranking">👑 売上ランキング / RANKING</div>
-    <div class="ranking-container">
-        <div class="ranking-item" onclick="location.href='product.html?id=p1'">
-            <div class="rank-badge rank-1">1</div>
-            <div class="rank-img">👕</div>
-            <div class="rank-info">
-                <div class="product-name" style="margin: 0;">レプリカユニフォーム2026</div>
+    <div class="section-container">
+        <div class="section-title">🔥 注目の新商品 / NEW ARRIVALS</div>
+        <div class="products-grid">
+            <div class="product-card" onclick="location.href='product.html?id=p1'">
+                <div class="product-img">👕</div>
+                <div class="product-name">レプリカユニ2026</div>
                 <div class="product-price">¥12,000</div>
             </div>
-        </div>
-        <div class="ranking-item" onclick="location.href='product.html?id=p2'">
-            <div class="rank-badge rank-2">2</div>
-            <div class="rank-img">🧣</div>
-            <div class="rank-info">
-                <div class="product-name" style="margin: 0;">推し選手マフラータオル</div>
+            <div class="product-card" onclick="location.href='product.html?id=p2'">
+                <div class="product-img">🧣</div>
+                <div class="product-name">選手マフラータオル</div>
                 <div class="product-price">¥2,500</div>
+            </div>
+            <div class="product-card" onclick="location.href='product.html?id=p3'">
+                <div class="product-img">👜</div>
+                <div class="product-name">公式トートバッグ</div>
+                <div class="product-price">¥3,800</div>
+            </div>
+            <div class="product-card" onclick="location.href='product.html?id=p4'">
+                <div class="product-img">🎒</div>
+                <div class="product-name">大容量バックパック</div>
+                <div class="product-price">¥8,500</div>
+            </div>
+        </div>
+        <div class="more-btn-container">
+            <button class="view-all-btn" onclick="location.href='category.html?type=new'">VIEW ALL ➔</button>
+        </div>
+    </div>
+
+    <div class="section-container" id="ranking">
+        <div class="section-title">👑 売上ランキング / RANKING</div>
+        <div class="ranking-container">
+            <div class="ranking-item" onclick="location.href='product.html?id=p1'">
+                <div class="rank-badge rank-1">1</div>
+                <div class="rank-img">👕</div>
+                <div class="rank-info">
+                    <div class="product-name" style="margin: 0;">レプリカユニフォーム2026</div>
+                    <div class="product-price">¥12,000</div>
+                </div>
+            </div>
+            <div class="ranking-item" onclick="location.href='product.html?id=p2'">
+                <div class="rank-badge rank-2">2</div>
+                <div class="rank-img">🧣</div>
+                <div class="rank-info">
+                    <div class="product-name" style="margin: 0;">推し選手マフラータオル</div>
+                    <div class="product-price">¥2,500</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="section-title">✨ オススメの商品 / RECOMMEND</div>
-    <div class="products-grid" style="padding-bottom: 10px;">
-        <div class="product-card" onclick="location.href='product.html?id=p3'">
-            <div class="product-img">🔑</div>
-            <div class="product-name">GANAR ロゴステッカー</div>
-            <div class="product-price">¥500</div>
+    <div class="section-container">
+        <div class="section-title">✨ オススメの商品 / RECOMMEND</div>
+        <div class="products-grid">
+            <div class="product-card" onclick="location.href='product.html?id=p5'">
+                <div class="product-img">🔑</div>
+                <div class="product-name">GANAR ロゴステッカー</div>
+                <div class="product-price">¥500</div>
+            </div>
+            <div class="product-card" onclick="location.href='product.html?id=p6'">
+                <div class="product-img">📱</div>
+                <div class="product-name">公式スマホケース</div>
+                <div class="product-price">¥2,200</div>
+            </div>
         </div>
-        <div class="product-card">
-            <div class="product-img">📱</div>
-            <div class="product-name">公式スマホケース</div>
-            <div class="product-price">¥2,200</div>
+        <div class="more-btn-container">
+            <button class="view-all-btn" onclick="location.href='category.html?type=recommend'">VIEW ALL ➔</button>
         </div>
-        <div class="product-card">
-            <div class="product-img">🍼</div>
-            <div class="product-name">ロゴ入りスクイズボトル</div>
-            <div class="product-price">¥1,500</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">🧢</div>
-            <div class="product-name">オフィシャルキャップ</div>
-            <div class="product-price">¥3,500</div>
-        </div>
-    </div>
-    <div class="more-btn-container" style="padding-bottom: 60px;">
-        <button class="view-all-btn" onclick="location.href='category.html?type=recommend'">VIEW ALL ➔</button>
     </div>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('drawerMenu');
-            menu.classList.toggle('open');
-        }
-    </script>
+    <div id="footer-holder"></div>
+
+    <script src="load-components.js"></script>
 </body>
 </html>
