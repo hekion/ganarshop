@@ -11,7 +11,7 @@
     <header>GANAR OFFICIAL SHOP</header>
 
     <div class="slider-wrapper">
-        <div class="slider-container" id="slider">
+        <div class="slider-container">
             <div class="slide" style="background: linear-gradient(135deg, #005f9e, #00bfff);">
                 <h2>2026 NEW UNIFORM</h2>
                 <p>歴代最高の一着。本日より数量限定で販売開始！</p>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="search-box">
-        <input text="text" placeholder="グッズ名、選手名を入力...">
+        <input type="text" placeholder="グッズ名、選手名を入力...">
     </div>
 
     <div class="section-title">👤 選手から探す / PLAYERS</div>
@@ -126,14 +126,5 @@
         <button class="more-page-btn" onclick="location.href='category.html?type=recommend'">オススメをモット見る ▼</button>
     </div>
 
-    <script>
-        // 自動スライドバナーの処理
-        const slider = document.getElementById('slider');
-        let index = 0;
-        setInterval(() => {
-            index = (index + 1) % 5;
-            slider.style.transform = `translateX(-${index * 100}%)`;
-        }, 4000);
-    </script>
 </body>
 </html>
