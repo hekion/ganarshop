@@ -8,11 +8,11 @@
 </head>
 <body>
 
-    <header>
-        <a href="javascript:history.back()">◁ 戻る</a>
-    </header>
+    <div id="header-holder"></div>
 
-    <div class="main-img">PRODUCT HIGH-RES IMAGE</div>
+    <div class="main-img">
+        <div class="main-img-placeholder">✨ GANAR PREMIUM GEAR ✨</div>
+    </div>
 
     <div class="content-padding">
         <div class="product-title" id="p-title">商品名を取得中...</div>
@@ -25,6 +25,9 @@
         <button class="checkout-btn" onclick="alert('Shopifyの決済画面（外部）へ安全にジャンプします')">カートに入れる</button>
     </div>
 
+    <div id="footer-holder"></div>
+
+    <script src="load-components.js"></script>
     <script src="shop.js"></script>
 </body>
 </html>
