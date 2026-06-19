@@ -1,18 +1,18 @@
 :root {
     --primary-color: #00bfff;     /* GANAR水色 */
-    --primary-dark: #008ecc;      /* 深みのある水色 */
-    --bg-dark: #121212;           /* メインの黒 */
-    --bg-card: #ffffff;           /* カードの白 */
-    --body-bg: #f8fafc;           /* 今風アプリのベース薄グレー */
-    --text-main: #1e293b;         /* 高級感のある濃いグレー */
-    --text-muted: #64748b;        /* 補足用のグレー */
-    --accent-price: #df2020;      /* 上品な赤 */
-    --accent-gold: #f59e0b;       /* ランキングのゴールド */
+    --primary-dark: #008ecc;      
+    --bg-dark: #121212;           
+    --bg-card: #ffffff;           
+    --body-bg: #f4f6f9;           /* 背景を少しアズネロ風の綺麗なトーンに */
+    --text-main: #1e293b;         
+    --text-muted: #64748b;        
+    --accent-price: #df2020;      
+    --accent-gold: #f59e0b;       
 }
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--text-main);
     background-color: var(--body-bg);
     padding-bottom: 60px;
@@ -30,19 +30,18 @@ header {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* 1. スライドバナー（グラデーションをリッチに） */
+/* スライドバナー */
 .slider-wrapper {
     width: 100%;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);
 }
 
 .slider-container {
     display: flex;
     width: 300%;
-    height: 190px;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* ヌルッと動く加速感 */
+    height: 200px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slide {
@@ -59,25 +58,23 @@ header {
 
 .slide h2 {
     margin: 0 0 8px 0;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: 1px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .slide p {
     margin: 0;
     font-size: 0.9rem;
-    font-weight: 500;
     opacity: 0.9;
-    background: rgba(0,0,0,0.1);
-    padding: 4px 12px;
-    border-radius: 12px;
+    background: rgba(0,0,0,0.15);
+    padding: 4px 14px;
+    border-radius: 20px;
 }
 
-/* 丸みのあるスタイリッシュな検索窓 */
+/* 検索窓 */
 .search-box {
-    padding: 20px 16px 10px 16px;
+    padding: 20px 16px 5px 16px;
 }
 
 .search-box input {
@@ -89,114 +86,101 @@ header {
     font-size: 0.95rem;
     outline: none;
     background-color: var(--bg-card);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* 柔らかい影 */
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
 }
 
-.search-box input:focus {
-    box-shadow: 0 4px 20px rgba(0, 191, 255, 0.15);
-}
-
-/* 見出し（ボーダーを太く、文字をシャープに） */
+/* 見出し：英字併記のシャープなデザイン */
 .section-title {
-    padding: 24px 16px 12px 16px;
-    font-size: 1.1rem;
+    padding: 28px 16px 14px 16px;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--bg-dark);
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    letter-spacing: 0.5px;
 }
 
-/* 2. 選手一覧アコーディオン（無駄な線を全廃） */
-.player-accordion {
-    margin: 0 16px;
-}
-
-.accordion-trigger {
-    width: 100%;
-    background-color: var(--bg-card);
-    border: none;
-    padding: 14px 18px;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-main);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-}
-
-.player-grid-box {
-    display: none;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    background-color: #f1f5f9;
-    padding: 14px;
-    border-radius: 0 0 12px 12px;
-    margin-top: -4px;
-}
-
-.player-grid-box.open {
+/* 🌟 アズーロ・ネロ風：選手タイルグリッドレイアウト */
+.player-tile-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 綺麗な3列 */
+    gap: 10px;
+    padding: 0 16px;
 }
 
-.player-grid-item {
+.player-tile-card {
     background-color: var(--bg-card);
-    border: none;
-    border-radius: 8px;
-    padding: 10px 6px;
-    text-align: center;
+    border-radius: 10px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    transition: transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.player-grid-item:active {
-    transform: scale(0.95);
-    background-color: var(--primary-color);
-    color: #ffffff;
+.player-tile-card:active {
+    transform: scale(0.96);
+    background-color: #e6f7ff;
 }
 
-.p-num {
-    font-size: 0.8rem;
-    font-weight: 800;
+/* 特大の背番号をアズネロ風に背景っぽく配置 */
+.tile-number {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #e2e8f0; /* 薄いグレーで写真の代わりに目立たせる */
+    line-height: 1;
+    text-align: right;
+}
+
+.player-tile-card:active .tile-number {
     color: var(--primary-color);
+    opacity: 0.3;
+}
+
+.tile-info {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.tile-pos {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
     margin-bottom: 2px;
 }
 
-.player-grid-item:active .p-num {
-    color: #ffffff;
+.tile-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--bg-dark);
 }
 
-.p-name {
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-/* カテゴリタグ（ボタン型に変形） */
+/* カテゴリタグ */
 .horizontal-scroll {
     display: flex;
     overflow-x: auto;
-    padding: 16px;
+    padding: 12px 16px;
     gap: 8px;
 }
 
 .category-tag {
     background-color: var(--bg-card);
-    padding: 10px 20px;
+    padding: 10px 18px;
     border-radius: 25px;
     font-size: 0.85rem;
     font-weight: 700;
     white-space: nowrap;
-    border: none;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
-/* 3. 注目の新商品（カードをリッチに） */
+/* 注目の新商品（横スクロール） */
 .horizontal-goods-scroll {
     display: flex;
     overflow-x: auto;
@@ -204,14 +188,15 @@ header {
     gap: 14px;
 }
 
+.horizontal-goods-scroll::-webkit-scrollbar { display: none; }
+
 .goods-mini-card {
-    flex: 0 0 140px;
+    flex: 0 0 145px;
     background-color: var(--bg-card);
     border-radius: 14px;
     padding: 12px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.03);
     cursor: pointer;
-    transition: transform 0.2s ease;
 }
 
 .goods-mini-img {
@@ -229,8 +214,6 @@ header {
 .goods-mini-name {
     font-size: 0.85rem;
     font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -240,9 +223,10 @@ header {
     font-size: 0.9rem;
     color: var(--accent-price);
     font-weight: 800;
+    margin-top: 4px;
 }
 
-/* 4. 売上ランキング（高級感のあるリスト） */
+/* 売上ランキング */
 .ranking-container {
     padding: 0 16px;
     display: flex;
@@ -274,7 +258,7 @@ header {
     background-color: #94a3b8;
 }
 
-.rank-1 { background-color: var(--accent-gold); color: #ffffff; box-shadow: 0 2px 6px rgba(245,158,11,0.3); }
+.rank-1 { background-color: var(--accent-gold); box-shadow: 0 2px 6px rgba(245,158,11,0.3); }
 .rank-2 { background-color: #cbd5e1; color: #475569; }
 .rank-3 { background-color: #b45309; }
 
@@ -292,10 +276,9 @@ header {
 
 .rank-info {
     flex-grow: 1;
-    overflow: hidden;
 }
 
-/* 5. オススメ商品（2列グリッドの完成形） */
+/* オススメ商品 */
 .recommend-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -326,12 +309,11 @@ header {
 .recommend-name {
     font-size: 0.85rem;
     font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 4px;
 }
 
 .recommend-price {
     font-size: 0.9rem;
     color: var(--accent-price);
     font-weight: 800;
+    margin-top: 4px;
 }
