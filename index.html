@@ -10,20 +10,33 @@
 
     <header>GANAR OFFICIAL SHOP</header>
 
-    <!-- 1. アズーロ・ネロ風：メイン特大スライドバナー -->
+    <!-- 1. メイン特大スライドバナー（中身を具体化した5枚体制） -->
     <div class="slider-wrapper">
         <div class="slider-container" id="slider">
+            <!-- 1枚目：2026ユニフォーム -->
             <div class="slide" style="background: linear-gradient(135deg, #005f9e, #00bfff);">
                 <h2>2026 NEW UNIFORM</h2>
-                <p>本日より数量限定で販売開始！</p>
+                <p>歴代最高の一着。本日より数量限定で販売開始！</p>
             </div>
-            <div class="slide" style="background: linear-gradient(135deg, #121212, #333333);">
-                <h2>HEKION CAMPAIGN</h2>
-                <p>プロデュースグッズ第1弾登場</p>
+            <!-- 2枚目：HEKIONキャンペーン -->
+            <div class="slide" style="background: linear-gradient(135deg, #121212, #262626);">
+                <h2>HEKION LIMITED GEAR</h2>
+                <p>母体ブランド「HEKION」プロデュースグッズ第1弾登場！</p>
             </div>
-            <div class="slide" style="background: linear-gradient(135deg, #00bfff, #005f9e);">
+            <!-- 3枚目：限定マフラータオル -->
+            <div class="slide" style="background: linear-gradient(135deg, #0099ff, #005f9e);">
                 <h2>SUMMER LIMITED TOWEL</h2>
-                <p>スタジアムを水色に染め上げろ</p>
+                <p>数量限定！スタジアムを鮮やかな水色に染め上げろ</p>
+            </div>
+            <!-- 4枚目：マスコットグッズ -->
+            <div class="slide" style="background: linear-gradient(135deg, #22c55e, #15803d);">
+                <h2>MASCOT GOODS DEBUT!!</h2>
+                <p>待望のクラブマスコットグッズが遂にオンライン販売開始！</p>
+            </div>
+            <!-- 5枚目：初観戦おすすめ -->
+            <div class="slide" style="background: linear-gradient(135deg, #ea580c, #ca8a04);">
+                <h2>FOR FIRST VISITORS</h2>
+                <p>これさえあれば安心！初観戦に絶対オススメの厳選定番アイテム</p>
             </div>
         </div>
     </div>
@@ -33,47 +46,19 @@
         <input type="text" placeholder="グッズ名、選手名を入力...">
     </div>
 
+    <!-- 2. 選手一覧ページへの誘導ボタン -->
+    <div class="section-title">👤 選手から探す / PLAYERS</div>
+    <div class="players-nav-box">
+        <button class="nav-to-players-btn" onclick="location.href='players.html'">
+            選手一覧からグッズを探す ➔
+        </button>
+    </div>
+
     <!-- カテゴリ別クイックボタン -->
     <div class="horizontal-scroll">
         <div class="category-tag" onclick="location.href='category.html?category=uniform'">👕 ユニフォーム</div>
         <div class="category-tag" onclick="location.href='category.html?category=towel'">🧣 タオル</div>
         <div class="category-tag" onclick="location.href='category.html?category=goods'">🔑 雑貨・小物</div>
-    </div>
-
-    <!-- 2. 【大注目】AZZURRO NERO風 選手一覧タイルエリア -->
-    <div class="section-title">👤 選手から探す / PLAYERS</div>
-    <div class="player-tile-grid">
-        <!-- サポーター -->
-        <div class="player-tile-card" onclick="location.href='category.html?player=12'">
-            <div class="tile-number">12</div>
-            <div class="tile-info">
-                <span class="tile-pos">SUPPORTER</span>
-                <span class="tile-name">サポーター</span>
-            </div>
-        </div>
-        <!-- 福井選手 -->
-        <div class="player-tile-card" onclick="location.href='category.html?player=fukui'">
-            <div class="tile-number">1</div>
-            <div class="tile-info">
-                <span class="tile-pos">GK</span>
-                <span class="tile-name">福井</span>
-            </div>
-        </div>
-        <!-- 関野選手 -->
-        <div class="player-tile-card" onclick="location.href='category.html?player=sekino'">
-            <div class="tile-number">2</div>
-            <div class="tile-info">
-                <span class="tile-pos">DF</span>
-                <span class="tile-name">関野</span>
-            </div>
-        </div>
-        <!-- 仮の選手たち（30人近くに増えても縦に美しく並びます） -->
-        <div class="player-tile-card"><div class="tile-number">3</div><div class="tile-info"><span class="tile-pos">DF</span><span class="tile-name">山田</span></div></div>
-        <div class="player-tile-card"><div class="tile-number">4</div><div class="tile-info"><span class="tile-pos">DF</span><span class="tile-name">佐藤</span></div></div>
-        <div class="player-tile-card"><div class="tile-number">7</div><div class="tile-info"><span class="tile-pos">MF</span><span class="tile-name">鈴木</span></div></div>
-        <div class="player-tile-card"><div class="tile-number">10</div><div class="tile-info"><span class="tile-pos">FW</span><span class="tile-name">田中</span></div></div>
-        <div class="player-tile-card"><div class="tile-number">11</div><div class="tile-info"><span class="tile-pos">FW</span><span class="tile-name">高橋</span></div></div>
-        <div class="player-tile-card"><div class="tile-number">18</div><div class="tile-info"><span class="tile-pos">MF</span><span class="tile-name">渡辺</span></div></div>
     </div>
 
     <!-- 3. 注目の新商品 -->
@@ -115,39 +100,73 @@
                 <div class="goods-mini-price">¥2,500</div>
             </div>
         </div>
-        <div class="ranking-item">
-            <div class="rank-badge rank-3">3</div>
-            <div class="rank-img">🔑</div>
-            <div class="rank-info">
-                <div class="goods-mini-name">GANAR ロゴステッカー</div>
-                <div class="goods-mini-price">¥500</div>
-            </div>
+    </div>
+
+    <!-- 5. 商品一覧（縦2列が続いていくレイアウト） -->
+    <div class="section-title">✨ 商品一覧 / ALL ITEMS</div>
+    <div class="main-products-grid" id="mainProductsGrid">
+        <div class="grid-product-card" onclick="location.href='product.html?id=p3'">
+            <div class="grid-product-img">🔑</div>
+            <div class="grid-product-name">GANAR ロゴステッカー</div>
+            <div class="grid-product-price">¥500</div>
+        </div>
+        <div class="grid-product-card">
+            <div class="grid-product-img">📱</div>
+            <div class="grid-product-name">公式スマホケース</div>
+            <div class="grid-product-price">¥2,200</div>
+        </div>
+        <div class="grid-product-card">
+            <div class="grid-product-img">🍼</div>
+            <div class="grid-product-name">ロゴ入りスクイズボトル</div>
+            <div class="grid-product-price">¥1,500</div>
+        </div>
+        <div class="grid-product-card">
+            <div class="grid-product-img">🧢</div>
+            <div class="grid-product-name">オフィシャルキャップ</div>
+            <div class="grid-product-price">¥3,500</div>
         </div>
     </div>
 
-    <!-- 5. オススメの商品 -->
-    <div class="section-title">✨ オススメの商品 / RECOMMEND</div>
-    <div class="recommend-grid">
-        <div class="recommend-card" onclick="location.href='product.html?id=p3'">
-            <div class="recommend-img">🔑</div>
-            <div class="recommend-name">GANAR ロゴステッカー</div>
-            <div class="recommend-price">¥500</div>
-        </div>
-        <div class="recommend-card">
-            <div class="recommend-img">📱</div>
-            <div class="recommend-name">公式スマホケース</div>
-            <div class="recommend-price">¥2,200</div>
-        </div>
+    <!-- もっと見るボタン -->
+    <div class="more-btn-container">
+        <button class="more-load-btn" id="loadMoreBtn" onclick="loadMoreProducts()">もっと見る ▼</button>
     </div>
 
     <script>
-        // 自動スライドバナーの処理
+        // 自動スライドバナーの処理（5枚用に500%幅に対応）
         const slider = document.getElementById('slider');
         let index = 0;
         setInterval(() => {
-            index = (index + 1) % 3;
+            index = (index + 1) % 5;
             slider.style.transform = `translateX(-${index * 100}%)`;
         }, 4000);
+
+        // 「もっと見る」を押したときに追加される仮の商品データ
+        const extraProducts = [
+            { img: '🎒', name: '大容量バックパック', price: '¥8,500' },
+            { img: '🖊️', name: 'GANAR ロゴボールペン', price: '¥350' },
+            { img: '🧦', name: 'チームソックス', price: '¥1,200' },
+            { img: '🌂', name: 'スタジアム折りたたみ傘', price: '¥2,800' }
+        ];
+
+        function loadMoreProducts() {
+            const grid = document.getElementById('mainProductsGrid');
+            const btn = document.getElementById('loadMoreBtn');
+            
+            extraProducts.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'grid-product-card';
+                card.innerHTML = `
+                    <div class="grid-product-img">${p.img}</div>
+                    <div class="grid-product-name">${p.name}</div>
+                    <div class="grid-product-price">${p.price}</div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // 1回押したらボタンを非表示にする
+            btn.style.display = 'none';
+        }
     </script>
 </body>
 </html>
