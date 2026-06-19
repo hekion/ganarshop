@@ -1,42 +1,48 @@
 :root {
-    --primary-color: #00bfff; /* GANAR水色 */
-    --bg-dark: #121212;
-    --text-main: #333333;
-    --text-white: #ffffff;
-    --gray-light: #f5f5f5;
-    --accent-gold: #ffd700;
+    --primary-color: #00bfff;     /* GANAR水色 */
+    --primary-dark: #008ecc;      /* 深みのある水色 */
+    --bg-dark: #121212;           /* メインの黒 */
+    --bg-card: #ffffff;           /* カードの白 */
+    --body-bg: #f8fafc;           /* 今風アプリのベース薄グレー */
+    --text-main: #1e293b;         /* 高級感のある濃いグレー */
+    --text-muted: #64748b;        /* 補足用のグレー */
+    --accent-price: #df2020;      /* 上品な赤 */
+    --accent-gold: #f59e0b;       /* ランキングのゴールド */
 }
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: var(--text-main);
-    background-color: var(--gray-light);
+    background-color: var(--body-bg);
     padding-bottom: 60px;
+    -webkit-font-smoothing: antialiased;
 }
 
 header {
     background-color: var(--bg-dark);
-    color: var(--text-white);
-    padding: 15px;
+    color: #ffffff;
+    padding: 18px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 800;
     font-size: 1.1rem;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* 1. 本格スライドバナーのスタイル */
+/* 1. スライドバナー（グラデーションをリッチに） */
 .slider-wrapper {
     width: 100%;
     overflow: hidden;
     position: relative;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);
 }
 
 .slider-container {
     display: flex;
-    width: 300%; /* 3枚分 */
-    height: 180px;
-    transition: transform 0.5s ease-in-out;
+    width: 300%;
+    height: 190px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* ヌルッと動く加速感 */
 }
 
 .slide {
@@ -45,264 +51,287 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--text-white);
+    color: #ffffff;
     text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .slide h2 {
-    margin: 0 0 5px 0;
-    font-size: 1.4rem;
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
+    font-weight: 800;
     letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .slide p {
     margin: 0;
     font-size: 0.9rem;
+    font-weight: 500;
     opacity: 0.9;
+    background: rgba(0,0,0,0.1);
+    padding: 4px 12px;
+    border-radius: 12px;
 }
 
-/* 検索窓 */
+/* 丸みのあるスタイリッシュな検索窓 */
 .search-box {
-    padding: 15px;
+    padding: 20px 16px 10px 16px;
 }
 
 .search-box input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 25px; /* 丸みをつけてモダンに */
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
     box-sizing: border-box;
     font-size: 0.95rem;
     outline: none;
-    background-color: var(--text-white);
+    background-color: var(--bg-card);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* 柔らかい影 */
+    transition: box-shadow 0.3s ease;
 }
 
+.search-box input:focus {
+    box-shadow: 0 4px 20px rgba(0, 191, 255, 0.15);
+}
+
+/* 見出し（ボーダーを太く、文字をシャープに） */
 .section-title {
-    padding: 20px 15px 10px 15px;
+    padding: 24px 16px 12px 16px;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 800;
     color: var(--bg-dark);
-    border-left: 4px solid var(--primary-color);
-    margin-left: 15px;
-    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* 2. 選手一覧アコーディオン（30人対応） */
+/* 2. 選手一覧アコーディオン（無駄な線を全廃） */
 .player-accordion {
-    margin: 0 15px;
+    margin: 0 16px;
 }
 
 .accordion-trigger {
     width: 100%;
-    background-color: var(--text-white);
-    border: 1px solid #ddd;
-    padding: 12px;
-    border-radius: 8px;
+    background-color: var(--bg-card);
+    border: none;
+    padding: 14px 18px;
+    border-radius: 12px;
     font-size: 0.95rem;
-    font-weight: bold;
-    color: var(--bg-dark);
+    font-weight: 700;
+    color: var(--text-main);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .player-grid-box {
-    display: none; /* 通常は隠す */
-    grid-template-columns: repeat(3, 1fr); /* 3列でコンパクトに */
-    gap: 8px;
-    background-color: #eef9ff;
-    padding: 12px;
-    border-radius: 0 0 8px 8px;
-    border: 1px solid #ddd;
-    border-top: none;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: #f1f5f9;
+    padding: 14px;
+    border-radius: 0 0 12px 12px;
+    margin-top: -4px;
 }
 
 .player-grid-box.open {
-    display: grid; /* 開いた時は3列グリッド */
+    display: grid;
 }
 
 .player-grid-item {
-    background-color: var(--text-white);
-    border: 1px solid #d0e8f5;
-    border-radius: 6px;
-    padding: 8px 4px;
+    background-color: var(--bg-card);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 6px;
     text-align: center;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
 }
 
 .player-grid-item:active {
+    transform: scale(0.95);
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
 }
 
 .p-num {
     font-size: 0.8rem;
-    font-weight: bold;
+    font-weight: 800;
     color: var(--primary-color);
+    margin-bottom: 2px;
 }
 
 .player-grid-item:active .p-num {
-    color: white;
+    color: #ffffff;
 }
 
 .p-name {
     font-size: 0.85rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
-/* カテゴリタグ */
+/* カテゴリタグ（ボタン型に変形） */
 .horizontal-scroll {
     display: flex;
     overflow-x: auto;
-    padding: 15px;
-    gap: 10px;
+    padding: 16px;
+    gap: 8px;
 }
 
 .category-tag {
-    background-color: var(--text-white);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
+    background-color: var(--bg-card);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
     white-space: nowrap;
-    border: 1px solid #eee;
+    border: none;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
-/* 3. 注目の新商品（横スクロール） */
+/* 3. 注目の新商品（カードをリッチに） */
 .horizontal-goods-scroll {
     display: flex;
     overflow-x: auto;
-    padding: 5px 15px 15px 15px;
-    gap: 12px;
+    padding: 4px 16px 16px 16px;
+    gap: 14px;
 }
 
 .goods-mini-card {
-    flex: 0 0 130px;
-    background-color: var(--text-white);
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    flex: 0 0 140px;
+    background-color: var(--bg-card);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 .goods-mini-img {
     width: 100%;
-    height: 100px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
+    height: 110px;
+    background-color: #f8fafc;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 8px;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
 }
 
 .goods-mini-name {
     font-size: 0.85rem;
-    font-weight: bold;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .goods-mini-price {
-    font-size: 0.85rem;
-    color: #e4393c;
-    font-weight: bold;
-    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--accent-price);
+    font-weight: 800;
 }
 
-/* 4. 売上ランキング */
+/* 4. 売上ランキング（高級感のあるリスト） */
 .ranking-container {
-    padding: 0 15px;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .ranking-item {
     display: flex;
     align-items: center;
-    background-color: var(--text-white);
-    padding: 10px;
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    background-color: var(--bg-card);
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
     cursor: pointer;
 }
 
 .rank-badge {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    color: white;
+    font-weight: 800;
+    color: #ffffff;
     font-size: 0.85rem;
-    margin-right: 12px;
-    background-color: #aaa;
+    margin-right: 14px;
+    background-color: #94a3b8;
 }
 
-.rank-1 { background-color: var(--accent-gold); color: #333; }
-.rank-2 { background-color: #ccc; color: #333; }
-.rank-3 { background-color: #cd7f32; }
+.rank-1 { background-color: var(--accent-gold); color: #ffffff; box-shadow: 0 2px 6px rgba(245,158,11,0.3); }
+.rank-2 { background-color: #cbd5e1; color: #475569; }
+.rank-3 { background-color: #b45309; }
 
 .rank-img {
-    width: 50px;
-    height: 50px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
+    width: 52px;
+    height: 52px;
+    background-color: #f8fafc;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
-    margin-right: 15px;
+    font-size: 1.5rem;
+    margin-right: 16px;
 }
 
 .rank-info {
     flex-grow: 1;
+    overflow: hidden;
 }
 
-/* 5. オススメ商品（2列） */
+/* 5. オススメ商品（2列グリッドの完成形） */
 .recommend-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 0 15px 30px 15px;
+    gap: 14px;
+    padding: 0 16px 40px 16px;
 }
 
 .recommend-card {
-    background-color: var(--text-white);
-    border-radius: 8px;
+    background-color: var(--bg-card);
+    border-radius: 14px;
     padding: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
     cursor: pointer;
 }
 
 .recommend-img {
     width: 100%;
-    height: 120px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
+    height: 130px;
+    background-color: #f8fafc;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 8px;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
 }
 
 .recommend-name {
     font-size: 0.85rem;
-    font-weight: bold;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
 }
 
 .recommend-price {
-    font-size: 0.85rem;
-    color: #e4393c;
-    font-weight: bold;
-    margin-top: 4px;
+    font-size: 0.9rem;
+    color: var(--accent-price);
+    font-weight: 800;
 }
