@@ -27,55 +27,233 @@ header {
     letter-spacing: 3px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: relative;
-    z-index: 10;
+    z-index: 100;
+}
+
+/* ヘッダー内ハンバーガーボタン */
+.menu-trigger-btn {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px 8px;
 }
 
 /* ==========================================================================
-   スライドバナー設定
+   📸 選手一覧：3:2横長インライングラフィックデザインカード
    ========================================================================== */
-.slider-wrapper {
-    width: 100%;
-    overflow: hidden;
+.player-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 8px 16px 40px 16px;
+}
+
+.player-photo-card {
+    border-radius: 12px;
     position: relative;
-    background-color: var(--bg-dark);
+    width: 100%;
+    aspect-ratio: 3 / 2; /* 完璧な3:2アスペクト比を維持 */
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    cursor: pointer;
 }
 
-.slider-container {
-    display: flex;
-    width: 500%; 
-    height: 200px;
-    animation: slideAnimation 20s infinite ease-in-out;
-}
-
-.slide {
-    width: 20%; 
-    flex-shrink: 0;
+/* 今後、画像（background-imageなど）を敷いた際に文字の視認性を保つためのグラデーションマスク */
+.player-photo-inner {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%);
+    padding: 12px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.photo-pos-badge {
+    align-self: flex-start;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     color: #ffffff;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.slide h2 {
-    margin: 0 0 8px 0;
-    font-size: 1.4rem;
+    font-size: 0.65rem;
     font-weight: 800;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
 }
 
-.slide p {
-    margin: 0;
-    font-size: 0.85rem;
-    opacity: 0.95;
-    background: rgba(0,0,0,0.2);
-    padding: 4px 14px;
-    border-radius: 20px;
-    line-height: 1.4;
+.photo-main-info {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
 }
+
+.photo-num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 0.9;
+    font-style: italic;
+}
+
+.photo-name {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   📱 川崎フロンターレ（アズネロ）オマージュ・ドロワーメニュー
+   ========================================================================== */
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: #ffffff;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-overlay.open {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #ffffff;
+}
+
+.drawer-close-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.close-icon { font-size: 1.2rem; font-weight: 300; }
+.close-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; }
+
+.drawer-body {
+    padding: 20px 16px 60px 16px;
+}
+
+/* メニュー内検索窓 */
+.drawer-search-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.drawer-search-box input {
+    flex-grow: 1;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.drawer-search-submit {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 0 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* 黒カプセルタグ */
+.drawer-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.drawer-capsule-tag {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* 4色ブロックマイメニュー */
+.drawer-mymenu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; /* 綺麗な格子ライン */
+    background-color: #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.mymenu-cell {
+    display: flex;
+    align-items: center;
+    padding: 16px 14px;
+    color: #ffffff;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.cell-black { background-color: #121212; }
+.cell-blue  { background-color: #3b82f6; }
+.cell-gold  { background-color: #b4965c; } /* 高級感あるゴールドマット */
+.cell-red   { background-color: #a92332; } /* 深みのあるアズネロ風レッド */
+
+.cell-icon { font-size: 1.2rem; }
+.cell-text { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; }
+
+/* メニューリスト */
+.drawer-nav-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 4px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3b82f6; /* 川崎風の爽やかな青リンク */
+    cursor: pointer;
+}
+
+.drawer-nav-item .arrow { color: #cbd5e1; font-size: 0.85rem; }
+.drawer-nav-item.item-sale { color: #a92332; }
+
+/* ==========================================================================
+   スライドバナー・共通コンポーネント
+   ========================================================================== */
+.slider-wrapper { width: 100%; overflow: hidden; position: relative; background-color: var(--bg-dark); }
+.slider-container { display: flex; width: 500%; height: 200px; animation: slideAnimation 20s infinite ease-in-out; }
+.slide { width: 20%; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffffff; text-align: center; padding: 20px; box-sizing: border-box; }
+.slide h2 { margin: 0 0 8px 0; font-size: 1.4rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.slide p { margin: 0; font-size: 0.85rem; opacity: 0.95; background: rgba(0,0,0,0.2); padding: 4px 14px; border-radius: 20px; line-height: 1.4; }
 
 @keyframes slideAnimation {
     0%, 16%   { transform: translateX(0); }          
@@ -86,159 +264,16 @@ header {
     100%      { transform: translateX(0); }          
 }
 
-/* ==========================================================================
-   共通パーツ・入力欄
-   ========================================================================== */
-.search-box {
-    padding: 20px 16px 5px 16px;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 30px;
-    box-sizing: border-box;
-    font-size: 0.95rem;
-    outline: none;
-    background-color: var(--bg-card);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-}
-
-.section-title {
-    padding: 28px 16px 14px 16px;
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--bg-dark);
-    letter-spacing: 0.5px;
-}
-
-.players-nav-box {
-    padding: 0 16px;
-}
-
-.nav-to-players-btn {
-    width: 100%;
-    background-color: var(--bg-card);
-    color: var(--text-main);
-    border: 1px solid rgba(0, 191, 255, 0.2);
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    cursor: pointer;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-
+.search-box { padding: 20px 16px 5px 16px; }
+.search-box input { width: 100%; padding: 14px 20px; border: none; border-radius: 30px; box-sizing: border-box; font-size: 0.95rem; outline: none; background-color: var(--bg-card); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03); }
+.nav-to-players-btn { width: 100%; background-color: var(--bg-card); color: var(--text-main); border: 1px solid rgba(0, 191, 255, 0.2); padding: 14px; border-radius: 12px; font-size: 0.95rem; font-weight: 700; cursor: pointer; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
 .nav-to-players-btn:active { background-color: #e6f7ff; }
+.page-explain-text { padding: 16px 16px 8px 16px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+.category-info-bar { background-color: #e2e8f0; padding: 12px 16px; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.5px; }
 
-.page-explain-text {
-    padding: 16px 16px 8px 16px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-}
-
-.category-info-bar {
-    background-color: #e2e8f0;
-    padding: 10px 16px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--text-muted);
-}
-
-/* ==========================================================================
-   👤 選手一覧：2列・横長スリムカードレイアウト
-   ========================================================================== */
-.player-row-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 8px 16px 40px 16px;
-}
-
-.player-row-card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: background-color 0.2s;
-}
-
-.player-row-card:active {
-    background-color: #e6f7ff;
-    border-color: rgba(0, 191, 255, 0.2);
-}
-
-/* 丸型の画像スペース（将来の画像差し替え用プレースホルダー） */
-.player-avatar-blank {
-    width: 44px;
-    height: 44px;
-    background-color: #f1f5f9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin-right: 10px;
-    flex-shrink: 0;
-}
-
-.player-row-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.player-row-num {
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    line-height: 1;
-    margin-bottom: 2px;
-}
-
-.player-row-name {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--bg-dark);
-    line-height: 1.2;
-}
-
-.player-row-pos {
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    margin-top: 1px;
-}
-
-/* ==========================================================================
-   📦 商品表示グリッド & 洗練されたボタン
-   ========================================================================== */
-.horizontal-scroll {
-    display: flex;
-    overflow-x: auto;
-    padding: 12px 16px;
-    gap: 8px;
-}
+.horizontal-scroll { display: flex; overflow-x: auto; padding: 12px 16px; gap: 8px; }
 .horizontal-scroll::-webkit-scrollbar { display: none; }
-.category-tag {
-    background-color: var(--bg-card);
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    white-space: nowrap;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-}
+.category-tag { background-color: var(--bg-card); padding: 10px 18px; border-radius: 25px; font-size: 0.85rem; font-weight: 700; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
 
 .ranking-container { padding: 0 16px; display: flex; flex-direction: column; gap: 12px; }
 .ranking-item { display: flex; align-items: center; background-color: var(--bg-card); padding: 12px; border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.03); cursor: pointer; }
@@ -248,68 +283,12 @@ header {
 .rank-img { width: 52px; height: 52px; background-color: #f8fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-right: 16px; }
 .rank-info { flex-grow: 1; }
 
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 14px;
-    padding: 0 16px;
-}
+.products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 0 16px; }
+.product-card { background-color: var(--bg-card); border-radius: 14px; padding: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.02); cursor: pointer; }
+.product-img { width: 100%; height: 140px; background-color: #f8fafc; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 12px; }
+.product-name { font-size: 0.9rem; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+.product-price { font-size: 0.95rem; color: var(--accent-price); font-weight: 800; }
 
-.product-card {
-    background-color: var(--bg-card);
-    border-radius: 14px;
-    padding: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.02);
-    cursor: pointer;
-}
-
-.product-img {
-    width: 100%;
-    height: 140px;
-    background-color: #f8fafc;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    margin-bottom: 12px;
-}
-
-.product-name {
-    font-size: 0.9rem;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 6px;
-}
-
-.product-price {
-    font-size: 0.95rem;
-    color: var(--accent-price);
-    font-weight: 800;
-}
-
-/* ➔ 洗練されたフラットデザインの一覧遷移ボタン */
-.more-btn-container {
-    padding: 16px 16px 20px 16px;
-    text-align: center;
-}
-
-.view-all-btn {
-    width: 100%;
-    background-color: transparent;
-    color: var(--text-main);
-    border: 1px solid #cbd5e1;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.view-all-btn:active {
-    background-color: var(--bg-dark);
-    color: #ffffff;
-    border-color: var(--bg-dark);
-}
+.more-btn-container { padding: 16px 16px 20px 16px; text-align: center; }
+.view-all-btn { width: 100%; background-color: transparent; color: var(--text-main); border: 1px solid #cbd5e1; padding: 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; cursor: pointer; transition: all 0.2s; }
+.view-all-btn:active { background-color: var(--bg-dark); color: #ffffff; border-color: var(--bg-dark); }
