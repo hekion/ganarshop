@@ -8,71 +8,25 @@
 </head>
 <body>
 
-    <header>
-        <a href="index.html" style="position: absolute; left: 16px; color: #fff; text-decoration: none; font-weight: 700;">◁ SHOP</a>
-        <div id="pageTitle">ITEMS</div>
-    </header>
+    <div id="header-holder"></div>
 
-    <div class="category-info-bar">
-        展示中のアイテム（全 8 件）
-    </div>
+    <div class="category-info-bar">展示中のアイテム（全 8 件）</div>
 
-    <div class="products-grid" style="margin-top: 16px; padding-bottom: 60px;">
-        <div class="product-card">
+    <div class="products-grid" style="margin-top: 24px; padding-bottom: 40px;">
+        <div class="product-card" onclick="location.href='product.html?id=p1'">
             <div class="product-img">👕</div>
             <div class="product-name">オーセンティックユニフォーム 2026</div>
             <div class="product-price">¥12,000</div>
         </div>
-        <div class="product-card">
+        <div class="product-card" onclick="location.href='product.html?id=p2'">
             <div class="product-img">🧣</div>
             <div class="product-name">プレーヤーズマフラータオル</div>
             <div class="product-price">¥2,500</div>
         </div>
-        <div class="product-card">
-            <div class="product-img">👜</div>
-            <div class="product-name">オフィシャルトートバッグ</div>
-            <div class="product-price">¥3,800</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">🎒</div>
-            <div class="product-name">プレイヤーズバックパック</div>
-            <div class="product-price">¥8,500</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">🔑</div>
-            <div class="product-name">GANAR アクリルキーホルダー</div>
-            <div class="product-price">¥650</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">📱</div>
-            <div class="product-name">ロゴデザイン スマホケース</div>
-            <div class="product-price">¥2,200</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">🍼</div>
-            <div class="product-name">チームスクイズボトル</div>
-            <div class="product-price">¥1,500</div>
-        </div>
-        <div class="product-card">
-            <div class="product-img">🧢</div>
-            <div class="product-name">フラットバイザーキャップ</div>
-            <div class="product-price">¥3,500</div>
-        </div>
     </div>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const type = params.get('type');
-        const cat = params.get('category');
-        const player = params.get('player');
-        const titleEl = document.getElementById('pageTitle');
+    <div id="footer-holder"></div>
 
-        if(type === 'new') titleEl.innerText = "NEW ARRIVALS";
-        else if(type === 'recommend') titleEl.innerText = "RECOMMEND ITEMS";
-        else if(cat === 'uniform') titleEl.innerText = "UNIFORM";
-        else if(cat === 'towel') titleEl.innerText = "TOWEL";
-        else if(cat === 'goods') titleEl.innerText = "GOODS";
-        else if(player) titleEl.innerText = "PLAYER GOODS";
-    </script>
+    <script src="load-components.js"></script>
 </body>
 </html>
