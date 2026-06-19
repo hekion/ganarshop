@@ -8,7 +8,70 @@
 </head>
 <body>
 
-    <header>GANAR OFFICIAL SHOP</header>
+    <header>
+        <div class="menu-trigger-btn" onclick="toggleMenu()">☰</div>
+        <div>GANAR OFFICIAL SHOP</div>
+    </header>
+
+    <div class="drawer-overlay" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-close-btn" onclick="toggleMenu()">
+                <span class="close-icon">✕</span>
+                <span class="close-text">CLOSE</span>
+            </div>
+        </div>
+
+        <div class="drawer-body">
+            <div class="drawer-search-box">
+                <input type="text" placeholder="キーワードを入力">
+                <button class="drawer-search-submit">検索</button>
+            </div>
+
+            <div class="drawer-tag-container">
+                <span class="drawer-capsule-tag" onclick="location.href='category.html?type=new'">NEWアイテム</span>
+                <span class="drawer-capsule-tag" onclick="location.href='category.html?category=towel'">タオル・マフラー</span>
+                <span class="drawer-capsule-tag">応援雑貨</span>
+                <span class="drawer-capsule-tag">Tシャツ</span>
+            </div>
+
+            <div class="drawer-mymenu-grid">
+                <div class="mymenu-cell cell-black">
+                    <span class="cell-icon">📋</span>
+                    <span class="cell-text">購入履歴</span>
+                </div>
+                <div class="mymenu-cell cell-blue">
+                    <span class="cell-icon">👤</span>
+                    <span class="cell-text">ログイン</span>
+                </div>
+                <div class="mymenu-cell cell-gold">
+                    <span class="cell-icon">💳</span>
+                    <span class="cell-text">決済情報</span>
+                </div>
+                <div class="mymenu-cell cell-red">
+                    <span class="cell-icon">🛒</span>
+                    <span class="cell-text">カートを見る</span>
+                </div>
+            </div>
+
+            <div class="drawer-nav-list">
+                <div class="drawer-nav-item" onclick="location.href='players.html'">
+                    <span>選手から選ぶ</span><span class="arrow">➔</span>
+                </div>
+                <div class="drawer-nav-item" onclick="location.href='category.html?type=new'">
+                    <span>新着商品</span><span class="arrow">➔</span>
+                </div>
+                <div class="drawer-nav-item" onclick="location.href='index.html#ranking'">
+                    <span>ランキング</span><span class="arrow">➔</span>
+                </div>
+                <div class="drawer-nav-item">
+                    <span>お気に入り</span><span class="arrow">➔</span>
+                </div>
+                <div class="drawer-nav-item item-sale">
+                    <span>SALE</span><span class="arrow">➔</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="slider-wrapper">
         <div class="slider-container">
@@ -79,7 +142,7 @@
         <button class="view-all-btn" onclick="location.href='category.html?type=new'">VIEW ALL ➔</button>
     </div>
 
-    <div class="section-title">👑 売上ランキング / RANKING</div>
+    <div class="section-title" id="ranking">👑 売上ランキング / RANKING</div>
     <div class="ranking-container">
         <div class="ranking-item" onclick="location.href='product.html?id=p1'">
             <div class="rank-badge rank-1">1</div>
@@ -126,5 +189,11 @@
         <button class="view-all-btn" onclick="location.href='category.html?type=recommend'">VIEW ALL ➔</button>
     </div>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('drawerMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
