@@ -1,9 +1,8 @@
 :root {
     --primary-color: #00bfff;     /* GANAR水色 */
-    --primary-dark: #008ecc;      
     --bg-dark: #121212;           
     --bg-card: #ffffff;           
-    --body-bg: #f4f6f9;           /* 背景を少しアズネロ風の綺麗なトーンに */
+    --body-bg: #f4f6f9;           
     --text-main: #1e293b;         
     --text-muted: #64748b;        
     --accent-price: #df2020;      
@@ -15,7 +14,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--text-main);
     background-color: var(--body-bg);
-    padding-bottom: 60px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -28,6 +26,7 @@ header {
     font-size: 1.1rem;
     letter-spacing: 3px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 /* スライドバナー */
@@ -39,13 +38,13 @@ header {
 
 .slider-container {
     display: flex;
-    width: 300%;
+    width: 500%; 
     height: 200px;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slide {
-    width: 100%;
+    width: 20%; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,7 +57,7 @@ header {
 
 .slide h2 {
     margin: 0 0 8px 0;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 800;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
@@ -89,7 +88,6 @@ header {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
 }
 
-/* 見出し：英字併記のシャープなデザイン */
 .section-title {
     padding: 28px 16px 14px 16px;
     font-size: 0.95rem;
@@ -98,12 +96,43 @@ header {
     letter-spacing: 0.5px;
 }
 
-/* 🌟 アズーロ・ネロ風：選手タイルグリッドレイアウト */
+/* 選手一覧への誘導ボタン */
+.players-nav-box {
+    padding: 0 16px;
+}
+
+.nav-to-players-btn {
+    width: 100%;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.nav-to-players-btn:active {
+    background-color: #e6f7ff;
+}
+
+/* players.html解説用テキスト */
+.page-explain-text {
+    padding: 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* 選手一覧タイルレイアウト */
 .player-tile-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 綺麗な3列 */
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    padding: 0 16px;
+    padding: 0 16px 40px 16px;
 }
 
 .player-tile-card {
@@ -119,47 +148,21 @@ header {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.player-tile-card:active {
-    transform: scale(0.96);
-    background-color: #e6f7ff;
-}
+.player-tile-card:active { background-color: #e6f7ff; }
 
-/* 特大の背番号をアズネロ風に背景っぽく配置 */
 .tile-number {
     font-size: 2.2rem;
     font-weight: 900;
-    color: #e2e8f0; /* 薄いグレーで写真の代わりに目立たせる */
+    color: #e2e8f0;
     line-height: 1;
     text-align: right;
 }
 
-.player-tile-card:active .tile-number {
-    color: var(--primary-color);
-    opacity: 0.3;
-}
-
-.tile-info {
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-}
-
-.tile-pos {
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
-    margin-bottom: 2px;
-}
-
-.tile-name {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--bg-dark);
-}
+.tile-info { display: flex; flex-direction: column; z-index: 2; }
+.tile-pos { font-size: 0.65rem; font-weight: 800; color: var(--text-muted); margin-bottom: 2px; }
+.tile-name { font-size: 0.95rem; font-weight: 800; color: var(--bg-dark); }
 
 /* カテゴリタグ */
 .horizontal-scroll {
@@ -168,7 +171,7 @@ header {
     padding: 12px 16px;
     gap: 8px;
 }
-
+.horizontal-scroll::-webkit-scrollbar { display: none; }
 .category-tag {
     background-color: var(--bg-card);
     padding: 10px 18px;
@@ -180,140 +183,75 @@ header {
     box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
-/* 注目の新商品（横スクロール） */
-.horizontal-goods-scroll {
-    display: flex;
-    overflow-x: auto;
-    padding: 4px 16px 16px 16px;
-    gap: 14px;
-}
-
-.horizontal-goods-scroll::-webkit-scrollbar { display: none; }
-
-.goods-mini-card {
-    flex: 0 0 145px;
-    background-color: var(--bg-card);
-    border-radius: 14px;
-    padding: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
-    cursor: pointer;
-}
-
-.goods-mini-img {
-    width: 100%;
-    height: 110px;
-    background-color: #f8fafc;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-}
-
-.goods-mini-name {
-    font-size: 0.85rem;
-    font-weight: 700;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.goods-mini-price {
-    font-size: 0.9rem;
-    color: var(--accent-price);
-    font-weight: 800;
-    margin-top: 4px;
-}
-
-/* 売上ランキング */
-.ranking-container {
-    padding: 0 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.ranking-item {
-    display: flex;
-    align-items: center;
-    background-color: var(--bg-card);
-    padding: 12px;
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
-    cursor: pointer;
-}
-
-.rank-badge {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    color: #ffffff;
-    font-size: 0.85rem;
-    margin-right: 14px;
-    background-color: #94a3b8;
-}
-
-.rank-1 { background-color: var(--accent-gold); box-shadow: 0 2px 6px rgba(245,158,11,0.3); }
+/* ランキング */
+.ranking-container { padding: 0 16px; display: flex; flex-direction: column; gap: 12px; }
+.ranking-item { display: flex; align-items: center; background-color: var(--bg-card); padding: 12px; border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.03); cursor: pointer; }
+.rank-badge { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 0.85rem; margin-right: 14px; background-color: #94a3b8; }
+.rank-1 { background-color: var(--accent-gold); }
 .rank-2 { background-color: #cbd5e1; color: #475569; }
-.rank-3 { background-color: #b45309; }
+.rank-img { width: 52px; height: 52px; background-color: #f8fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-right: 16px; }
+.rank-info { flex-grow: 1; }
 
-.rank-img {
-    width: 52px;
-    height: 52px;
-    background-color: #f8fafc;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-right: 16px;
-}
-
-.rank-info {
-    flex-grow: 1;
-}
-
-/* オススメ商品 */
-.recommend-grid {
+/* 🌟 新商品・オススメ共通：縦2列のスタイリッシュな商品グリッド */
+.products-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
     gap: 14px;
-    padding: 0 16px 40px 16px;
+    padding: 0 16px;
 }
 
-.recommend-card {
+.product-card {
     background-color: var(--bg-card);
     border-radius: 14px;
-    padding: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    padding: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.02);
     cursor: pointer;
 }
 
-.recommend-img {
+.product-img {
     width: 100%;
-    height: 130px;
+    height: 140px;
     background-color: #f8fafc;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 12px;
 }
 
-.recommend-name {
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.recommend-price {
+.product-name {
     font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.product-price {
+    font-size: 0.95rem;
     color: var(--accent-price);
     font-weight: 800;
-    margin-top: 4px;
+}
+
+/* ページ遷移用の「もっと見る」ボタン */
+.more-btn-container {
+    padding: 16px 16px 20px 16px;
+    text-align: center;
+}
+
+.more-page-btn {
+    width: 100%;
+    background-color: var(--bg-card);
+    color: var(--bg-dark);
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.more-page-btn:active {
+    background-color: #f1f5f9;
 }
